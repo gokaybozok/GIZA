@@ -260,41 +260,41 @@ class DashboardVisualizer:
                 st.markdown("### 🔺")
         
         with col_title:
-            st.subheader("🤖 GIZA Protocol Performans")
+            st.subheader("🤖 GIZA Protocol Performance")
         
         col1, col2, col3 = st.columns(3)
         
         with col1:
             st.metric("Agentic Volume", f"${protocol_metrics.agentic_volume/1_000_000:.0f}M")
-            st.metric("Aktif Ajanlar", f"{protocol_metrics.active_agents:,}")
+            st.metric("Active Agents", f"{protocol_metrics.active_agents:,}")
         
         with col2:
-            st.metric("Stake Edilen GIZA", f"{protocol_metrics.staked_percentage:.1f}%")
-            st.metric("Ortalama APR", f"{protocol_metrics.avg_apr:.2f}%")
+            st.metric("Staked GIZA", f"{protocol_metrics.staked_percentage:.1f}%")
+            st.metric("Average APR", f"{protocol_metrics.avg_apr:.2f}%")
         
         with col3:
-            st.metric("Protokol Geliri", f"${protocol_metrics.fee_revenue/1000:.0f}K")
+            st.metric("Protocol Revenue", f"${protocol_metrics.fee_revenue/1000:.0f}K")
             
             # Enhanced performance indicator
             performance_score = min(100, (protocol_metrics.avg_apr / 12) * 100)
             st.progress(performance_score/100)
-            st.caption(f"AI Performans Skoru: {performance_score:.0f}/100")
+            st.caption(f"AI Performance Score: {performance_score:.0f}/100")
         
         # Additional GIZA-specific metrics
         st.markdown("---")
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            st.metric("ARMA TVL", "$1.12M", delta="📈 Sürekli büyüme")
+            st.metric("ARMA TVL", "$1.12M", delta="📈 Continuous growth")
         
         with col2:
-            st.metric("Aktif Kullanıcılar", "24,734", delta="📊 Kanıtlanmış benimseme")
+            st.metric("Active Users", "24,734", delta="📊 Proven adoption")
         
         with col3:
-            st.metric("İşlem Hacmi", "$6.6M+", delta="💪 Güçlü aktivite")
+            st.metric("Transaction Volume", "$6.6M+", delta="💪 Strong activity")
         
         with col4:
-            st.metric("Güvenlik Olayı", "0", delta="🔒 Mükemmel güvenlik")
+            st.metric("Security Incidents", "0", delta="🔒 Perfect security")
     
     @staticmethod
     def create_distribution_chart(holder_data: Dict) -> go.Figure:
@@ -379,18 +379,18 @@ def main():
             
             with col2:
                 # Enhanced Key insights with GIZA-specific features
-                st.subheader("🔺 GIZA Protocol Özellikleri")
+                st.subheader("🔺 GIZA Protocol Features")
                 
                 # GIZA-specific insights
                 giza_features = [
-                    "🤖 **Otonom AI Ajanları**: 7/24 DeFi stratejilerini otomatik yürütür",
-                    "🔒 **Non-Custodial Güvenlik**: Kullanıcılar varlıklarının tam kontrolünü korur",
-                    "📈 **+83% Daha Yüksek Verim**: Statik stratejilere göre üstün performans",
-                    "💰 **$474M+ İşlem Hacmi**: Kanıtlanmış gerçek dünya kullanımı",
-                    "🧠 **Semantik Soyutlama**: AI'ın DeFi protokollerini anlamasını sağlar",
-                    "⚡ **EigenLayer Güvenliği**: Kripto-ekonomik güvence altında çalışma",
-                    "🎯 **ARMA Optimizer**: %9.32 ortalama APR ile stablecoin optimizasyonu",
-                    "🔧 **Modüler Yapı**: Geliştiriciler için kolay entegrasyon"
+                    "🤖 **Autonomous AI Agents**: Execute DeFi strategies 24/7 automatically",
+                    "🔒 **Non-Custodial Security**: Users maintain full control of their assets",
+                    "📈 **+83% Higher Yield**: Superior performance vs static strategies",
+                    "💰 **$474M+ Transaction Volume**: Proven real-world usage and adoption",
+                    "🧠 **Semantic Abstraction**: Enables AI understanding of DeFi protocols",
+                    "⚡ **EigenLayer Security**: Crypto-economic security guarantees",
+                    "🎯 **ARMA Optimizer**: 9.32% average APR stablecoin optimization",
+                    "🔧 **Modular Architecture**: Easy integration for developers"
                 ]
                 
                 for feature in giza_features:
@@ -398,42 +398,42 @@ def main():
                 
                 # Market insights
                 st.markdown("---")
-                st.markdown("**📊 Piyasa Analizi:**")
+                st.markdown("**📊 Market Analysis:**")
                 
                 insights = []
                 if ratios['price_vs_ath'] < -50:
-                    insights.append(f"🔻 Fiyat ATH'den %{abs(ratios['price_vs_ath']):.1f} düşük - potansiyel fırsat")
+                    insights.append(f"🔻 Price is {abs(ratios['price_vs_ath']):.1f}% below ATH - potential opportunity")
                 
                 if ratios['volume_to_mcap'] > 10:
-                    insights.append("📈 Market cap'e göre yüksek işlem aktivitesi")
+                    insights.append("📈 High trading activity relative to market cap")
                 
                 if protocol_metrics.avg_apr > 8:
-                    insights.append(f"🎯 Güçlü verim performansı - %{protocol_metrics.avg_apr:.1f} APR")
+                    insights.append(f"🎯 Strong yield performance at {protocol_metrics.avg_apr:.1f}% APR")
                 
                 if ratios['circulating_ratio'] < 15:
-                    insights.append("🔒 Düşük dolaşımdaki arz - kıtlık etkisi")
+                    insights.append("🔒 Low circulating supply creates scarcity effect")
                 
-                insights.append("🚀 AI x DeFi sektöründe öncü konum")
-                insights.append("🌐 Base, Ethereum ve Starknet desteği")
+                insights.append("🚀 Pioneer position in AI x DeFi sector")
+                insights.append("🌐 Multi-chain support: Base, Ethereum, Starknet")
                 
                 for insight in insights:
                     st.write(insight)
             
             # Technical details
-            with st.expander("🔧 Teknik Detaylar"):
+            with st.expander("🔧 Technical Details"):
                 st.write(f"**Contract Address:** `{GIZA_CONTRACT}`")
-                st.write(f"**Toplam Holder:** {holder_data['total_holders']:,}")
-                st.write(f"**Data Modu:** {'Canlı API' if API_AVAILABLE else 'Demo'}")
-                st.write(f"**Son Güncelleme:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
-                st.write("**Desteklenen Ağlar:** Ethereum, Base, Starknet")
-                st.write("**Protokol Türü:** Autonomous AI Agents for DeFi")
+                st.write(f"**Total Holders:** {holder_data['total_holders']:,}")
+                st.write(f"**Data Mode:** {'Live API' if API_AVAILABLE else 'Demo'}")
+                st.write(f"**Last Updated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
+                st.write("**Supported Networks:** Ethereum, Base, Starknet")
+                st.write("**Protocol Type:** Autonomous AI Agents for DeFi")
     
     else:
-        st.info("GIZA token metriklerini yüklemek için 'Veriyi Yenile' butonuna tıklayın")
+        st.info("Click 'Refresh Data' to load the latest GIZA token metrics")
     
     # Footer
     st.markdown("---")
-    st.markdown("**Veri Kaynakları:** CoinGecko, Etherscan, Giza Protocol | **Geliştirme:** Python, Streamlit, Plotly")
+    st.markdown("**Data Sources:** CoinGecko, Etherscan, Giza Protocol | **Built with:** Python, Streamlit, Plotly")
 
 if __name__ == "__main__":
     main()
